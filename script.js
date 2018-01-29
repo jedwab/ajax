@@ -15,7 +15,13 @@ $.ajax({
 
 function showCountriesList(resp) {
 	countriesList.empty();
-	resp.forEach(function(item) {
-    		$('<li>').text(item.name).appendTo(countriesList);
-});
+	var countryName = $('#country-name').val();
+
+	var filteredCountries = resp.filter(function(singleCountry){  
+       return singleCountry.name.toLowerCase().indexOf(countryName.toLowerCase()) != -1;
+    });
+
+    filteredCountries.forEach(function(item) {
+    	$('<li>').text(item.name).appendTo(countriesList);
+    });
 }
