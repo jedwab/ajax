@@ -11,15 +11,15 @@ $('.create-column')
     .click(function() {
         var columnName = prompt('Enter a column name');
         $.ajax({
-        url: baseUrl + '/column',
-        method: 'POST',
-        data: {
+          url: baseUrl + '/column',
+          method: 'POST',
+          data: {
               name: columnName
-        },
-        success: function(response){
-          var column = new Column(response.id, columnName);
-          board.createColumn(column);
-            }
+          },
+          success: function(response){
+            var column = new Column(response.id, columnName);
+            board.createColumn(column);
+          }
         });
 }); 
   
@@ -27,20 +27,19 @@ function initSortable() {
     $('.card-list').sortable({
       connectWith: '.card-list',
       placeholder: 'card-placeholder',
-         receive: function(event, ui) {
-          var newColumnId = event.target.offsetParent.id;
-          var cardId = ui.item[0].id;
-          var cardDescription = ui.item.children("p").text();
-
-          $.ajax({
-            url: baseUrl + '/card/' + cardId,
-            method: 'PUT',
-            data: {
-                name: cardDescription,
-                bootcamp_kanban_column_id: newColumnId
-            }
+      receive: function(event, ui) {
+        var cardName = $(ui.item[0]).find('.card-description').text(),
+            cardId = $(ui.item[0]).attr('data-id'),
+            columnId = $(ui.item[0]).closest('div.column').attr('data-id');
+            
+        $.ajax({
+          url: baseUrl + '/card/' + cardId,
+          method: 'PUT',
+          data: {
+            name: cardName,
+            bootcamp_kanban_column_id: columnId
+          }         
         });
       }
     }).disableSelection();
-    
-}
+  }

@@ -7,7 +7,7 @@ function Column(id, name) {
 
 	function createColumn() {
 		// TWORZENIE NOWYCH WĘZŁÓW
-		var column = $('<div class="column"></div>').attr("id", self.id);
+		var column = $('<div class="column" data-id="' + self.id + '"></div>');
 		var columnTitle = $('<h2 class="column-title">' + self.name + '</h2>');
 		var columnCardList = $('<ul class="card-list"></ul>');
 		var columnDelete = $('<button class="btn-delete">x</button>');
