@@ -2,17 +2,22 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <title>Country Search Engine</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Country search engine</h1>
-    <button id="search">Search a country</button>
-    <input id="country-name" type="text" />
-    <h2>List of countries</h2>
+    <div class = "menu">
+        <h1 class="text-center">Country search engine</h1>
+        <div class="input-group text-center">
+            <input type="text" class="form-control text-center" placeholder="Enter country name" id="country-name">
+            <button class="btn btn-default"> Search country </button>
+        </div>
+    </div>
+    <h2 class= "text-center list">List of countries</h2>
     <ul id="countries">
-        <li>No data</li>
+        <li></li>
     </ul>
 	<script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="script.js"></script>
